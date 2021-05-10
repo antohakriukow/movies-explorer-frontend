@@ -1,0 +1,126 @@
+.aboutproject {
+  margin: 110px 70px;
+  max-height: 608px;
+}
+
+.aboutproject__title {
+  text-align: left;
+  border-bottom: 1px solid #000;
+  padding-bottom: 23px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.aboutproject__cards-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
+}
+
+.aboutproject__card{
+
+}
+
+.aboutproject__card-title {
+  margin: 70px 0 26px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.aboutproject__card-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.aboutproject__time-container {
+  padding-top: 110px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 23px;
+}
+
+.aboutproject__progress {
+  background-color: #F2F2F2;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  height: 36px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aboutproject__progress_green {
+  background-color: #2BE080;
+;
+}
+
+.aboutproject__time {
+  color: #A0A0A0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .aboutproject {
+    margin: 90px 50px;
+    max-height: 585px;
+  }
+
+  .aboutproject__cards-area {
+    grid-column-gap: 30px;
+  }
+
+  .aboutproject__card-text {
+    font-size: 12px;
+  }
+
+  .aboutproject__time-container {
+    padding-top: 93px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutproject {
+    margin: 70px 18px;
+    max-height: 641px;
+  }
+
+  .aboutproject__cards-area {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutproject__card-title {
+    margin: 56px 0 16px;
+    font-size: 18px;
+  }
+
+  .aboutproject__card-text {
+    font-size: 11px;
+  }
+
+  .aboutproject__time-container {
+    padding-top: 60px;
+  }
+
+  .aboutproject__progress {
+    font-size: 11px;
+  }
+
+  .aboutproject__time {
+    font-size: 11px;
+  }
+}

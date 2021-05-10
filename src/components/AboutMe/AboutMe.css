@@ -1,0 +1,155 @@
+.aboutme {
+  margin: 110px 70px 0;
+  max-height: 608px;
+}
+
+.aboutproject__title {
+  text-align: left;
+  border-bottom: 1px solid #000;
+  padding-bottom: 23px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.aboutme__area {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 49px;
+}
+
+.aboutme__info {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.aboutme__name {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.2;
+  margin: 66px 0 0;
+}
+
+.aboutme__short {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 18px 0 0;
+}
+
+.aboutme__full {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 26px 0 0;
+}
+
+.aboutme__social {
+  padding: 0;
+  margin: 140px 0 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.aboutme__social-item {
+  margin: 0 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutme__social-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.aboutme__avatar {
+  max-height: 327px;
+  /* width: 270px; */
+  background: no-repeat center/100% url("../../images/aboutme_avatar.jpg");
+  margin: 66px 0 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .aboutme {
+    margin: 90px 50px 0;
+  }
+
+  .aboutme__name {
+    font-size: 40px;
+  }
+
+  .aboutme__short {
+    font-size: 12px;
+  }
+
+  .aboutme__full {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .aboutme__area {
+    grid-template-columns: 1fr 240px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutme__area {
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutme {
+    margin: 70px 14px 0;
+    min-height: 744px;
+  }
+
+  .aboutproject__title {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .aboutme__area {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .aboutme__name {
+    font-size: 30px;
+    margin: 40px 0 0;
+  }
+
+  .aboutme__short {
+    font-size: 11px;
+  }
+
+  .aboutme__short {
+    margin: 20px 0 0;
+  }
+
+  .aboutme__full {
+    font-size: 11px;
+  }
+
+  .aboutme__avatar {
+    min-height: 352px;
+    margin: 60px 0 0;
+  }
+
+  .aboutme__social {
+    margin: 87px 0 0;
+  }
+}
