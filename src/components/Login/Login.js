@@ -8,7 +8,7 @@ const Login = () => {
   return(
     <section className="login">
       <div className="login__container">
-        <div className="login__header"></div>
+        <a href="/" className="login__header">.</a>
         <h2 className="login__greetings">Рады видеть</h2>
         <form className="login__form" name="login" onSubmit={onLoginSubmit}>
           <label className="login__input-title">Email</label>

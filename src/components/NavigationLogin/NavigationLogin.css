@@ -38,7 +38,7 @@
   align-self: center;
   height: 32px;
   width: 100px;
-  background: #F5F5F5;
+  background: #F4F4F4;
   border-radius: 20px;
 }
 
@@ -47,12 +47,12 @@
 }
 
 .navigation-login__btn_white {
-  color: #fff;
+  color: #000;
 }
 
 .navigation-login__btn_transparent {
   background-color: transparent;
-  border: 2px solid #fff;
+  border: 2px solid #000;
 }
 
 @media (max-width: 768px) {

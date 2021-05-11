@@ -8,7 +8,7 @@ const Register = () => {
   return(
     <section className="register">
       <div className="register__container">
-        <div className="register__header"></div>
+        <a href="/" className="register__header">.</a>
         <h2 className="register__greetings">Добро пожаловать</h2>
         <form className="register__form" name="login" onSubmit={onLoginSubmit}>
           <label className="register__input-title">Имя</label>

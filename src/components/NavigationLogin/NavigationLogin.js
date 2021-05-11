@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import './NavigationLogin.css';
 
 const NavigationLogin = ({ path, handleMenuSwitcher }) => {
-  const menuClassSwitcher = `navigation-login__menu ${
-    path === '/'
-    ? "navigation-login__menu_white"
-    : ""
-  }`
+  // const menuClassSwitcher = `navigation-login__menu ${
+  //   path === '/'
+  //   ? "navigation-login__menu_white"
+  //   : ""
+  // }`
   const filmsClassSwitcher = `navigation-login__btn ${
     path === '/'
     ? "navigation-login__btn_white"
@@ -25,7 +25,7 @@ const NavigationLogin = ({ path, handleMenuSwitcher }) => {
 
   return(
     <section className="navigation-login">
-      <button className={menuClassSwitcher} onClick={handleMenuSwitcher}></button>
+      <button className="navigation-login__menu" onClick={handleMenuSwitcher}></button>
       <NavLink to="/movies" className={filmsClassSwitcher}>Фильмы</NavLink>
       <NavLink to="/saved-movies" className={savedfilmsClassSwitcher}>Сохраненные фильмы</NavLink>
       <NavLink to="/profile" className={accountClassSwitcher}>Аккаунт</NavLink>
