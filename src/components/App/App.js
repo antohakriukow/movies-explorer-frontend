@@ -23,7 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({
     name: "Медвед",
     email: "medved@med.ved",
-    isAutenticated: false,
+    isAutenticated: true,
     id: "myID",
     films: currentUserCards
   });
