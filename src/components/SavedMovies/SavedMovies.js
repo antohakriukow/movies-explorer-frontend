@@ -3,11 +3,36 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 import './SavedMovies.css';
 
-const SavedMovies = ({ path }) => {
+const SavedMovies = ({
+  renderPath,
+  movies,
+  userMovies,
+  handleFilterMovies,
+  isSearchCompleted,
+  saveMovie,
+  deleteMovie,
+  moviesError,
+  notFoundError,
+  shortFilterMovies
+  }) => {
+
   return(
     <section className="savedmovies">
-      <SearchForm />
-      <MoviesCardList path={path}/>
+      <SearchForm
+        handleFilterMovies={handleFilterMovies}
+        path={renderPath}
+        shortFilterMovies={shortFilterMovies}
+      />
+      <MoviesCardList
+        path={renderPath}
+        movies={movies}
+        userMovies={userMovies}
+        isSearchCompleted={isSearchCompleted}
+        saveMovie={saveMovie}
+        deleteMovie={deleteMovie}
+        moviesError={moviesError}
+        notFoundError={notFoundError}
+      />
     </section>
     
   );

@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import React from 'react';
 
 
 import NavigationLogin from '../NavigationLogin/NavigationLogin'
 import NavigationLogout from '../NavigationLogout/NavigationLogout'
 import './Header.css';
 
-const Header = ({ path, handleMenuSwitcher }) => {
-  const currentUser = useContext(CurrentUserContext);
-
+const Header = ({ path, handleMenuSwitcher, isAutenticated }) => {
   const classSwitcher = `header ${
     (path === '/signin' || path === '/signup')
     ? "header_hidden"
@@ -20,7 +17,7 @@ const Header = ({ path, handleMenuSwitcher }) => {
     <section className={classSwitcher}>
       <a href="/" className="header__logo">.</a>
       <div className="header__menu-area">
-        {currentUser.isAutenticated
+        {isAutenticated
           ? <NavigationLogin
               path={path}
               handleMenuSwitcher={handleMenuSwitcher}
