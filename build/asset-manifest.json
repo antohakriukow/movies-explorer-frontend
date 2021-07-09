@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.95706003.chunk.css",
-    "main.js": "/static/js/main.cfb26049.chunk.js",
-    "main.js.map": "/static/js/main.cfb26049.chunk.js.map",
+    "main.css": "/static/css/main.d3748cbb.chunk.css",
+    "main.js": "/static/js/main.e21d731f.chunk.js",
+    "main.js.map": "/static/js/main.e21d731f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.1382f83d.js",
     "runtime-main.js.map": "/static/js/runtime-main.1382f83d.js.map",
     "static/js/2.05e32110.chunk.js": "/static/js/2.05e32110.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.1aa12486.chunk.js": "/static/js/3.1aa12486.chunk.js",
     "static/js/3.1aa12486.chunk.js.map": "/static/js/3.1aa12486.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.95706003.chunk.css.map": "/static/css/main.95706003.chunk.css.map",
+    "static/css/main.d3748cbb.chunk.css.map": "/static/css/main.d3748cbb.chunk.css.map",
     "static/js/2.05e32110.chunk.js.LICENSE.txt": "/static/js/2.05e32110.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Inter-Regular.bd097cef.woff2",
     "static/media/AboutMe.css": "/static/media/aboutme_avatar.66678785.jpg",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.1382f83d.js",
     "static/js/2.05e32110.chunk.js",
-    "static/css/main.95706003.chunk.css",
-    "static/js/main.cfb26049.chunk.js"
+    "static/css/main.d3748cbb.chunk.css",
+    "static/js/main.e21d731f.chunk.js"
   ]
 }

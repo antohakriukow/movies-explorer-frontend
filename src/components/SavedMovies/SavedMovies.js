@@ -13,7 +13,7 @@ const SavedMovies = ({
   deleteMovie,
   moviesError,
   notFoundError,
-  shortFilterMovies
+  shortFilterMovies,
   }) => {
 
   return(
@@ -32,7 +32,7 @@ const SavedMovies = ({
         deleteMovie={deleteMovie}
         moviesError={moviesError}
         notFoundError={notFoundError}
-      />
+ы      />
     </section>
     
   );

@@ -21,31 +21,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   min-height: 240px;
   width: 100%;
   max-width: 360px;
   border-radius: 0.5rem;
   box-sizing: border-box;
-  
   padding: 1.5rem;
   background-color: #fff;
 }
 
 .popup__close-btn {
   background: center/30px 30px url('../../images/popup_close-btn.svg') transparent no-repeat;
-  /* min-height: 22px;
-  width: 22px;
-  box-shadow: none;
-  border: none;
-  align-self: flex-end;
-  margin: 0;
-  padding: 0;
-  transition: opacity 0.3s linear;
-  position: absolute;
-  top: 1rem;
-  right: 1rem; */
-
   position: absolute;
   height: 2.5rem;
   width: 2.5rem;

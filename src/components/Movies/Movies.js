@@ -17,8 +17,9 @@ const Movies = ({
   isLoading,
   moviesError,
   notFoundError,
-  shortFilterMovies
+  shortFilterMovies,
   }) => {
+
 
   return (
     <section className="movies">

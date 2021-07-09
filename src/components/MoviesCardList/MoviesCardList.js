@@ -21,7 +21,8 @@ const MoviesCardList = ({
   deleteMovie,
   isLoading,
   moviesError,
-  notFoundError }) => {
+  notFoundError
+}) => {
   const [initialMoviesCount, setInitialMoviesCount] = useState(() => {
     if (path === '/saved-movies') {
       return 1000
@@ -71,20 +72,42 @@ const MoviesCardList = ({
     }
   }, [path])
 
-  function handleIncreaseMovies() {
+  const handleIncreaseMovies = () => {
     setInitialMoviesCount(prev =>  prev + increaseMoviesCount);
   }
 
-  const visibleMovies = movies.slice(0, initialMoviesCount);
+  
+  const initialMoviesSetter = () => {
+    let initialArr = JSON.parse(localStorage.getItem('initialMovies'))
+    if (initialArr) {
+      const initialMovies = (path === '/movies')
+      ? JSON.parse(localStorage.getItem('initialMovies'))
+      : JSON.parse(localStorage.getItem('savedMovies'))
+      return initialMovies
+    }
+    return []
+  }
 
+  const visibleMovies = (path === '/movies') ? movies.slice(0, initialMoviesCount) : movies
+  const memoisedFilms = (path === '/movies') ? initialMoviesSetter().slice(0, initialMoviesCount) : initialMoviesSetter()
+  const arrSwitcher = isSearchCompleted ? visibleMovies : memoisedFilms
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
   }, [handleResize])
 
+  useEffect(() => {
+    initialMoviesSetter()
+  })
+
   const savedMoviesTrigger = (path === '/saved-movies') && 'none'
 
-  const noFilmsTrigger = ((savedMoviesTrigger) || (visibleMovies.length === movies.length)) && 'none'
+  const moreFilmsBtnTrigger = () => {
+    if (path === '/saved-movies') {return 'none'}
+    if (JSON.parse(localStorage.getItem('initialMovies')) && (memoisedFilms.length < JSON.parse(localStorage.getItem('initialMovies')).length)) {return ''}
+    if (visibleMovies.length === movies.length) {return 'none'}
+    return ''
+  }
 
   const noSavedMovies = () => {
     if (localStorage.getItem('savedMovies')) {
@@ -93,7 +116,9 @@ const MoviesCardList = ({
         return true
       } else {return false}
     }
-    }
+  }
+
+
 
   return(
     <section className="moviescardlist">
@@ -102,7 +127,7 @@ const MoviesCardList = ({
       {moviesError && <MoviesCardListSpan spanText={moviesErrorText}/>}
       {notFoundError && isSearchCompleted && <MoviesCardListSpan spanText = {notFoundErrorText}/>}
       <ul className="moviescardlist__area">
-        {isSearchCompleted && visibleMovies.map((card) => (
+        {arrSwitcher.map((card) => (
           <MoviesCard 
             key={card.movieId}
             card={card}
@@ -115,7 +140,7 @@ const MoviesCardList = ({
       </ul>
       {<button
       className="moviescardlist__show-more-btn"
-      style={{display: noFilmsTrigger}}
+      style={{display: moreFilmsBtnTrigger()}}
       onClick={handleIncreaseMovies}
       >Ещё</button>}
     </section>

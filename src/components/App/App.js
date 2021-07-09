@@ -19,7 +19,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import moviesApi from '../../utils/MoviesApi';
 import mainApi from '../../utils/MainApi';
 import { checkToken, signUp, singIn } from '../../utils/AuthApi';
-import { movieFormatAdopter, filterMovies } from '../../utils/utils';
+import { movieFormatAdopter, filterMovies, shortFilterMovies } from '../../utils/utils';
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -32,7 +32,6 @@ const [isMenuOpened, setIsMenuOpened] = useState(false);
 const handleMenuSwitcher = () => isMenuOpened ? setIsMenuOpened(false) : setIsMenuOpened(true)
 
 //App Logic
-
   const location = useLocation();
   const history = useHistory();
 
@@ -99,7 +98,6 @@ const handleMenuSwitcher = () => isMenuOpened ? setIsMenuOpened(false) : setIsMe
 
 
   useEffect(() => {
-    // location.pathname === '/saved-movies' ? setMovies(userMovies) : setMovies(JSON.parse(localStorage.getItem('allMovies')))
     location.pathname === '/saved-movies'
       ? setMovies(userMovies)
       : (!setIsSearchCompleted && setMovies([]))
@@ -201,9 +199,8 @@ const handleMenuSwitcher = () => isMenuOpened ? setIsMenuOpened(false) : setIsMe
   }
 
 
-  const handleFilterMovies = (query) => {
+  const handleFilterMovies = (query, short = false) => {
     let searchInSaved = location.pathname === '/saved-movies' ? true : false
-    // debugger
     setIsLoading(true)
     setIsSearchCompleted(false)
     setMoviesError(false)
@@ -217,53 +214,30 @@ const handleMenuSwitcher = () => isMenuOpened ? setIsMenuOpened(false) : setIsMe
       setIsLoading(false)
       return
     }
-    if (searchInSaved && (query === undefined || query === '')) {
+    if (searchInSaved && !short && (query === undefined || query === '')) {
       setMovies(userMovies)
       setIsSearchCompleted(true)
       setIsLoading(false)
       return
     }
-    const arr = searchInSaved ? userMovies : JSON.parse(localStorage.getItem('allMovies'))
-    // let arr = movies
+    let arr = searchInSaved ? userMovies : JSON.parse(localStorage.getItem('allMovies'))
+    if (!searchInSaved && (query === '') && JSON.parse(localStorage.getItem('initialMovies'))) {
+      arr = JSON.parse(localStorage.getItem('initialMovies'))
+    }
     if (!searchInSaved && arr === null) {handleGetMovies()}
     if (searchInSaved && arr === null) {
       setIsLoading(false)
       return
     }
     
-    const filtredMovies = filterMovies(query, arr)
+    const filtredMovies = short ? shortFilterMovies(filterMovies(query, arr, searchInSaved)) : filterMovies(query, arr)
     if (filtredMovies.length === 0) {setNotFoundError(true)} 
     setMovies(filtredMovies)
+    console.log('App.js movies: ', movies)
+    !searchInSaved && localStorage.setItem('initialMovies', JSON.stringify(filtredMovies))
     setIsSearchCompleted(true)
     setIsLoading(false)
   }
-
-
-  const shortFilterMovies = (query, short) => {
-    let searchInSaved = location.pathname === '/saved-movies' ? true : false
-    if (isSearchCompleted && short) {
-      // debugger
-      setMoviesError(false)
-      setNotFoundError(false)
-      const arr = searchInSaved ? userMovies : movies
-      const filtredMovies = short ? arr.filter((movie) => movie.duration <= 40) : arr
-      if (filtredMovies.length === 0) {
-        setMovies([])
-        setIsSearchCompleted(true)
-        if (searchInSaved) {return}
-        return setNotFoundError(true)
-      }
-      setMovies(filtredMovies)
-      setIsSearchCompleted(true)
-    }
-    if (isSearchCompleted && short) {
-
-    }
-    if (isSearchCompleted && !short) {
-      handleFilterMovies(query, searchInSaved)
-    }
-  }
-
 
   const saveMovie = (movie) => {
     const jwt = localStorage.getItem('jwt');

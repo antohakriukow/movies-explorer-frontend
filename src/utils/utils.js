@@ -1,6 +1,12 @@
 import { moviesApiUrl, defaultMovieImg, defaultTrailerUrl } from './config';
 
-const filterMovies = (query, movies) => {
+const filterMovies = (query, movies, searchInSaved = false) => {
+  if (searchInSaved && (query === '')) {
+    return movies
+  }
+  if (!searchInSaved && (query.length < 1) && (movies.length < 100)) {
+    return movies.filter((movie) => movie.nameRU.toLowerCase().includes(query.toLowerCase()))
+  }
   if (query.length < 1) {return []}
   return movies.filter((movie) => movie.nameRU.toLowerCase().includes(query.toLowerCase())
   // || movie.description.toLowerCase().includes(query.toLowerCase())

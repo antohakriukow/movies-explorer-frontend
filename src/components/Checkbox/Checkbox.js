@@ -13,7 +13,9 @@ const Checkbox = ({
 
   const handleClick = (evt) => {
     const query = evt.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].childNodes[0].value
-    shortFilterMovies(query, evt.target.checked)
+    setShort(evt.target.checked)
+    console.log(evt.target.checked)
+    handleFilterMovies(query, evt.target.checked)
   }
 
 
